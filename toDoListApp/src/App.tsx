@@ -74,9 +74,9 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-500 flex items-center justify-center">
-      <div className="bg-gray-700 p-8 rounded shadow-md w-1/3">
-        <h1 className="text-2xl font-bold mb-4 text-center">To-Do List</h1>
+    <div className="min-h-screen bg-gray-500 flex items-center justify-center p-4">
+      <div className="bg-gray-900 p-7 rounded shadow-md w-full max-w-md">
+        <h1 className="text-2xl text-white font-bold mb-4 text-center">To-Do List</h1>
         <TaskSpawner createTask={createTask} />
         <TaskCounter count={taskList.filter(task => !task.completed).length} />
         <TaskViewer taskList={taskList} {...taskActions} />

@@ -32,7 +32,7 @@ const TaskGameObject: React.FC<TaskGameObjectProps> = ({ task, ...actions}) => {
     const isEditable = !task.completed;
 
     return (
-        <li className="flex items-center justify-between border-b p-2">
+        <li className="flex items-center justify-between border-b p-2 bg-gray-700 rounded-lg mb-2">
             <input
                 type="checkbox"
                 checked={task.completed}
@@ -40,23 +40,32 @@ const TaskGameObject: React.FC<TaskGameObjectProps> = ({ task, ...actions}) => {
                 disabled={isEditing}
             />
             {isEditing ? (
-                <input
-                type="text"
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-                disabled={!isEditable}
-                />
+                <div className="overflow-x-auto max-w-full">
+                    <input
+                    type="text"
+                    value={newName}
+                    onChange={(e) => setNewName(e.target.value)}
+                    disabled={!isEditable}
+                    className="bg-gray-800 text-white p-2 rounded focus:ring focus:ring-orange-500 overflow-x-auto max-w-full"
+                    />
+                </div>
+                
             ) : (
-                <span className={task.completed ? 'line-through' : ''}>
-                {task.name}
-                </span>
+                <div className="overflow-x-auto max-w-full">
+                    <span className={`font-bold ${task.completed ? 'line-through text-gray-500' : 'text-green-400'}`}>
+                        {task.name}
+                    </span>
+                </div>
             )}
-            <button onClick={handleEdit} disabled={!isEditable }>
-                {isEditing ? <AiFillSave className='text-xl'/> : <AiFillEdit className='text-xl'/>}
-            </button>
-            <button onClick={() => actions.deleteTask(task.id)} disabled={isEditing}>
-                <BsFillTrashFill className='text-xl'/>
-            </button>
+            <div className="flex gap-2 ml-2">
+                <button onClick={handleEdit} disabled={!isEditable } className="ml-2">
+                    {isEditing ? <AiFillSave className='text-xl text-green-500'/> : <AiFillEdit className='text-xl text-yellow-500'/>}
+                </button>
+                <button onClick={() => actions.deleteTask(task.id)} disabled={isEditing} className="ml-2">
+                    <BsFillTrashFill className='text-xl text-red-500'/>
+                </button>
+            </div>
+            
         </li>
     );
 };

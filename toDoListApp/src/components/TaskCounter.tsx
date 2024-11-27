@@ -8,7 +8,7 @@ interface TaskCounterProps
 
 const TaskCounter: React.FC<TaskCounterProps> = ({ count }) => (
     <div className="mb-4">
-        <strong>Tareas pendientes: {count}</strong>
+        <strong className="text-white">Tareas pendientes: {count}</strong>
     </div>
 );
 

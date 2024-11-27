@@ -23,15 +23,15 @@ const TaskSpawner: React.FC<TaskSpawnerProps> = ({ createTask }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-4 w-full sm:flex-row sm:items-center sm:gap-2">
         <input
             type="text"
-            className="border border-gray-300 p-2 flex-1 rounded"
+            className="border border-gray-600 bg-gray-800 text-white p-2 flex-1 rounded focus:outline-none focus:ring focus:ring-orange-500"
             placeholder="Nueva tarea"
             value={taskName}
             onChange={e => setTaskName(e.target.value)}
         />
-        <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+        <button className="bg-orange-700 text-white font-bold px-4 py-2 rounded hover:bg-orange-700 sm:w-auto w-full">
             Agregar
         </button>
         </form>
