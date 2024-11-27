@@ -1,14 +1,15 @@
+// this is the react component that will display all task in task list
 import React from 'react'
 import { TaskActions } from '../types/TaskActions'
 import { Task } from '../App';
 import TaskGameObject from './TaskGameObject';
 
-interface TaskManagerProps extends TaskActions
+interface TaskViewerProps extends TaskActions
 {
     taskList: Task[];
 }
 
-const TaskManager: React.FC<TaskManagerProps> = (props) => {
+const TaskViewer: React.FC<TaskViewerProps> = (props) => {
     const { taskList } = props;
 
     return (
@@ -20,4 +21,4 @@ const TaskManager: React.FC<TaskManagerProps> = (props) => {
     );
 };
 
-export default TaskManager
+export default TaskViewer

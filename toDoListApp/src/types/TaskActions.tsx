@@ -1,3 +1,4 @@
+// defines the task behaviour
 export interface TaskActions 
 {
     changeTaskStatus: (taskID: number) => void;

@@ -1,3 +1,4 @@
+// this is the react component that Create new tasks
 import React, { useState } from 'react'
 
 interface TaskSpawnerProps
@@ -7,8 +8,10 @@ interface TaskSpawnerProps
 
 const TaskSpawner: React.FC<TaskSpawnerProps> = ({ createTask }) => {
     
+    // taskName string status variable and setter initialize with empty string
     const [taskName, setTaskName] = useState<string>("");
 
+    // handle submit button 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void =>
     {
         event.preventDefault();
